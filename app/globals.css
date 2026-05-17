@@ -14,10 +14,16 @@
 html, body {
   background: var(--bg);
   color: var(--fg);
-  font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+  font-family: var(--font-sans), -apple-system, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-code, pre {
-  font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+code, pre, .mono {
+  font-family: var(--font-mono), 'Cascadia Code', Consolas, monospace;
+}
+
+/* selection */
+::selection {
+  background: rgba(56, 189, 248, 0.25);
+  color: #f8fafc;
 }

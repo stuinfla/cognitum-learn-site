@@ -35,7 +35,7 @@ case "$BUMP" in patch|minor|major|none) ;; *) echo "Usage: $0 patch|minor|major|
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO_ROOT"
 
-PAGE="app/page.tsx"
+PAGE="app/version.ts"
 LIVE_URL="https://learner-rv-site.vercel.app"
 SHOT_DIR="$REPO_ROOT/.deploy-artifacts"
 mkdir -p "$SHOT_DIR"
@@ -57,7 +57,7 @@ gh auth status >/dev/null 2>&1 || fail "gh not authenticated — run 'gh auth lo
 
 # ── Bump version ──────────────────────────────────────────────────────────────
 
-CURRENT=$(node -e 'const fs=require("fs"); const m=fs.readFileSync("app/page.tsx","utf8").match(/LEARN_RV_VERSION\s*=\s*"v(\d+\.\d+\.\d+)"/); if(!m){process.exit(2)}; process.stdout.write(m[1])')
+CURRENT=$(node -e 'const fs=require("fs"); const m=fs.readFileSync("app/version.ts","utf8").match(/LEARN_RV_VERSION\s*=\s*"v(\d+\.\d+\.\d+)"/); if(!m){process.exit(2)}; process.stdout.write(m[1])')
 [[ -n "$CURRENT" ]] || fail "could not read LEARN_RV_VERSION from $PAGE"
 
 IFS='.' read -r MAJOR MINOR PATCH <<<"$CURRENT"
@@ -75,7 +75,7 @@ if [[ "$BUMP" != "none" ]]; then
     # In-place patch the constant only (won't disturb surrounding code)
     node -e '
       const fs = require("fs");
-      const path = "app/page.tsx";
+      const path = "app/version.ts";
       const src = fs.readFileSync(path, "utf8");
       const next = process.argv[1];
       const out = src.replace(
@@ -162,9 +162,10 @@ for i in $(seq 1 15); do
     TITLE=$(agent-browser get title 2>/dev/null | head -1)
     if [[ "$TITLE" != *"Checkpoint"* ]]; then
         # Page real — try the version stamp
-        # agent-browser wraps output in "--- AGENT_BROWSER_PAGE_CONTENT ---" markers;
-        # extract just the semver token.
-        RENDERED=$(agent-browser get text '[data-version]' 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | head -1 || true)
+        # `get text` is flaky for this element — use eval to read the DOM directly.
+        # agent-browser wraps eval output in "--- AGENT_BROWSER_PAGE_CONTENT ---" markers,
+        # so extract just the semver token.
+        RENDERED=$(agent-browser eval 'document.querySelector("[data-version]")?.textContent || ""' 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | head -1 || true)
         [[ -n "$RENDERED" ]] && break
     fi
     sleep 2

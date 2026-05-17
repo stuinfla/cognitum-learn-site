@@ -1,6 +1,6 @@
 import Link from "next/link";
+import { LEARN_RV_VERSION } from "./version";
 
-const LEARN_RV_VERSION = "v0.2.22";
 const INSTALL_CMD = "cargo install --git https://github.com/stuinfla/learner-rv learn-cli";
 
 export default function Home() {
@@ -9,6 +9,7 @@ export default function Home() {
       <SiteHeader />
       <Hero />
       <TwoDoors />
+      <StartIdeas />
       <SovereigntyPanel />
       <SeedHardware />
       <HowItWorks />
@@ -60,15 +61,18 @@ function BrandMark({ className = "" }: { className?: string }) {
 
 function Hero() {
   return (
-    <section className="relative">
-      <div className="max-w-[1240px] mx-auto px-6 lg:px-12 pt-24 pb-32">
+    <section className="relative overflow-hidden">
+      <div className="max-w-[1240px] mx-auto px-6 lg:px-12 pt-20 pb-24">
         <div className="grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6 lg:pr-8">
             <Eyebrow>LOCAL · CITED · YOURS</Eyebrow>
-            <h1 className="mt-6 text-[42px] sm:text-[54px] lg:text-[68px] leading-[1.08] font-bold tracking-[-0.025em] text-slate-50">
+            <h1 className="mt-6 text-[40px] sm:text-[52px] lg:text-[64px] leading-[1.08] font-bold tracking-[-0.025em] text-slate-50">
               <span className="block">Your own AI.</span>
-              <span className="block">On a device <span className="text-sky-400 border-b-[3px] border-orange-500 pb-1">smaller than a deck of cards</span>.</span>
-              <span className="block mt-3">Nothing ever leaves it.</span>
+              <span className="block">On a device you can hold.</span>
+              <span className="block mt-3 text-sky-400">
+                Nothing ever leaves it.
+                <span className="block w-32 h-[3px] bg-orange-500 mt-3"></span>
+              </span>
             </h1>
             <p className="mt-8 text-[17px] leading-[1.65] text-slate-400 max-w-[44ch]">
               <span className="mono text-sky-300">learn-rv</span> turns any video, podcast, or PDF into a private knowledge base that lives on your{" "}
@@ -83,13 +87,21 @@ function Hero() {
                 What is a Cognitum Seed?
               </a>
             </div>
-            <div className="mt-12 flex items-center gap-2 mono text-[11px] uppercase tracking-widest text-slate-500">
-              <span className="w-1.5 h-1.5 bg-emerald-400" />
-              <span>open source · PolyForm Noncommercial · pure Rust</span>
+            <div className="mt-12 flex flex-wrap items-center gap-x-4 gap-y-2 mono text-[11px] uppercase tracking-widest text-slate-500">
+              <span className="inline-flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-emerald-400 animate-pulse" />
+                <span>shipping <span className="text-emerald-300">{LEARN_RV_VERSION}</span></span>
+              </span>
+              <span className="text-slate-700">·</span>
+              <span>open source</span>
+              <span className="text-slate-700">·</span>
+              <span>PolyForm Noncommercial</span>
+              <span className="text-slate-700">·</span>
+              <span>pure Rust</span>
             </div>
           </div>
 
-          <div className="lg:col-span-6 relative lg:translate-x-6">
+          <div className="lg:col-span-6 relative lg:translate-x-6 max-h-[560px] overflow-hidden">
             <KnowledgeStackSVG />
           </div>
         </div>
@@ -141,6 +153,47 @@ function DoorCard({ eyebrow, title, body, href, cta, warm = false }: {
         {cta} <span aria-hidden>→</span>
       </div>
     </Link>
+  );
+}
+
+// ── Start Ideas ───────────────────────────────────────────────────────────
+
+function StartIdeas() {
+  const ideas = [
+    { topic: "ai-safety", source: "the entire Stanford Existential Risk YouTube channel", hours: "~48 hr" },
+    { topic: "tax-prep", source: "your accountant's 12-video onboarding playlist", hours: "~3 hr" },
+    { topic: "classical-music", source: "Leonard Bernstein's Young People's Concerts archive", hours: "~25 hr" },
+    { topic: "rust-async", source: "tokio.rs walk-throughs + Jon Gjengset's streams", hours: "~30 hr" },
+    { topic: "winemaking", source: "Wine Folly's full course + your local vintner's podcast", hours: "~12 hr" },
+    { topic: "physical-therapy", source: "your shoulder-recovery clinic's protocol videos", hours: "~2 hr" },
+  ];
+  return (
+    <section className="py-24 border-b border-slate-800 bg-slate-950">
+      <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
+        <div className="max-w-3xl">
+          <Eyebrow>WHAT WOULD YOU TEACH IT</Eyebrow>
+          <h2 className="mt-5 text-[32px] sm:text-[40px] font-bold tracking-tight text-slate-50 leading-[1.1]">
+            Six things people are building on their Seed right now.
+          </h2>
+          <p className="mt-5 text-slate-400 text-[15px] leading-[1.65]">
+            You pick a topic name. You paste a source. Five minutes later your Seed is the world expert on it, just for you.
+          </p>
+        </div>
+        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-slate-800 border border-slate-800">
+          {ideas.map((i) => (
+            <div key={i.topic} className="bg-slate-950 p-6 hover:bg-slate-900/40 transition group">
+              <div className="mono text-[10px] uppercase tracking-widest text-sky-400 flex items-center gap-2">
+                <span className="inline-block w-3 h-px bg-sky-400" />
+                TOPIC
+              </div>
+              <div className="mt-2 mono text-[15px] text-orange-300 group-hover:text-orange-200 transition">{i.topic}</div>
+              <div className="mt-4 text-slate-300 text-[14px] leading-[1.55]">{i.source}</div>
+              <div className="mt-4 mono text-[10px] uppercase tracking-widest text-slate-500">{i.hours} of content</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
