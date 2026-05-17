@@ -65,18 +65,56 @@ function BrandMark({ className = "" }: { className?: string }) {
 function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-slate-800">
-      <div className="relative max-w-[1280px] mx-auto px-6 lg:px-12 pt-16 pb-20 lg:pt-24 lg:pb-28">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* LEFT: copy */}
-          <div className="lg:col-span-7">
+      {/* Atmospheric backdrop — hero-desk.png at low opacity, single fade overlay */}
+      <div className="absolute inset-0 pointer-events-none">
+        <Image
+          src="/img/hero-desk.png"
+          alt=""
+          fill
+          priority
+          className="object-cover opacity-[0.18]"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/20" />
+      </div>
+
+      <div className="relative max-w-[1280px] mx-auto px-5 sm:px-6 lg:px-12 pt-10 pb-20 lg:pt-20 lg:pb-28">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+          {/* IMAGE first on mobile (order-1), second on desktop (lg:order-2) */}
+          <div className="lg:col-span-6 order-1 lg:order-2">
+            <figure className="relative">
+              <div className="relative aspect-[3/2] rounded-[6px] overflow-hidden border border-amber-500/20 shadow-2xl shadow-amber-900/30">
+                <Image
+                  src="/img/knowledge-absorbed.png"
+                  alt="A Cognitum Seed device on a warm wooden desk, with luminous streams of video frames, audio waveforms and book pages cascading into it — knowledge being absorbed and stored as vectors."
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 48vw, 100vw"
+                />
+                <div className="absolute inset-0 ring-1 ring-inset ring-amber-300/15 pointer-events-none" />
+                {/* Floating mono label overlay — anchors what they're looking at */}
+                <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-slate-950/80 to-transparent">
+                  <div className="mono text-[9px] uppercase tracking-widest text-amber-200 flex items-center gap-2">
+                    <span className="inline-block w-3 h-px bg-amber-300/60" />
+                    your Cognitum Seed absorbs videos · stores them as vectors
+                  </div>
+                </div>
+              </div>
+            </figure>
+          </div>
+
+          {/* COPY second on mobile (order-2), first on desktop (lg:order-1) */}
+          <div className="lg:col-span-6 order-2 lg:order-1">
             <Eyebrow>FOR PEOPLE WHO JUST UNBOXED A COGNITUM ONE SEED</Eyebrow>
-            <h1 className="display mt-6 text-[38px] sm:text-[52px] lg:text-[68px] leading-[1.04] tracking-[-0.02em] text-slate-50 font-normal">
-              Your Cognitum Seed turns hours of video into the <em className="cream italic" style={{ fontVariationSettings: '"SOFT" 100, "WONK" 1' }}>expert</em> you wish you were.
+            <h1 className="display mt-5 text-[34px] sm:text-[44px] lg:text-[60px] leading-[1.05] tracking-[-0.02em] text-slate-50 font-normal">
+              Your <span className="cream">Cognitum Seed</span> turns hours of video into the <em className="cream italic" style={{ fontVariationSettings: '"SOFT" 100, "WONK" 1' }}>expert</em> you wish you were.
             </h1>
-            <p className="mt-8 text-[18px] leading-[1.65] text-slate-300 max-w-[52ch]">
+            <p className="mt-7 text-[17px] leading-[1.65] text-slate-300 max-w-[52ch]">
               Point it at a YouTube channel before bed. Your Seed watches every video, distills every insight, and stores it the way <em className="text-amber-300 not-italic">your brain</em> does — as vectors, not files. You wake up. You ask. It answers, cited, in milliseconds.
             </p>
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
               <a href="#brain" className="inline-flex items-center gap-2 px-6 py-3.5 bg-amber-300 text-slate-950 font-medium hover:bg-amber-200 transition rounded-[4px]">
                 Show me how it works <span aria-hidden>↓</span>
               </a>
@@ -84,38 +122,14 @@ function Hero() {
                 I have my Seed — let&rsquo;s start it up <span aria-hidden>→</span>
               </Link>
             </div>
-            <div className="mt-12 flex flex-wrap items-center gap-x-5 gap-y-2 mono text-[11px] uppercase tracking-widest text-slate-500">
+            <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 mono text-[11px] uppercase tracking-widest text-slate-500">
               <span className="inline-flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-emerald-400 animate-pulse" />
                 <span>shipping <span className="text-emerald-300">{LEARN_RV_VERSION}</span></span>
               </span>
               <span className="text-slate-700">·</span>
               <span>nothing leaves your network</span>
-              <span className="text-slate-700">·</span>
-              <span>your hardware, your data</span>
             </div>
-          </div>
-
-          {/* RIGHT: hero image — knowledge being absorbed into the Seed */}
-          <div className="lg:col-span-5">
-            <figure className="relative">
-              <div className="relative aspect-[3/2] rounded-[6px] overflow-hidden border border-amber-500/20 shadow-2xl shadow-amber-900/20">
-                <Image
-                  src="/img/knowledge-absorbed.png"
-                  alt="A small Cognitum Seed device on a warm wooden desk, with luminous streams of video frames, audio waveforms and book pages cascading into it — knowledge being absorbed and stored as vectors."
-                  fill
-                  priority
-                  className="object-cover"
-                  sizes="(min-width: 1024px) 40vw, 100vw"
-                />
-                {/* Subtle glow */}
-                <div className="absolute inset-0 ring-1 ring-inset ring-amber-300/10 pointer-events-none" />
-              </div>
-              <figcaption className="mt-3 mono text-[10px] uppercase tracking-widest text-slate-500 text-center">
-                <span className="inline-block w-3 h-px bg-amber-300/40 align-middle mr-2" />
-                hours of video distilled into vectors, on a device the size of your wallet
-              </figcaption>
-            </figure>
           </div>
         </div>
       </div>
