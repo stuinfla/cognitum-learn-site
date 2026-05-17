@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const LEARN_RV_VERSION = "v0.2.21";
+const LEARN_RV_VERSION = "v0.2.22";
 const INSTALL_CMD = "cargo install --git https://github.com/stuinfla/learner-rv learn-cli";
 
 export default function Home() {
@@ -25,18 +25,18 @@ export default function Home() {
 function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur bg-slate-950/80 border-b border-slate-800">
-      <div className="max-w-[1240px] mx-auto px-6 lg:px-12 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <BrandMark className="w-7 h-7" />
-          <span className="mono text-sm tracking-wider text-slate-100">learn-rv</span>
-          <span className="mono text-[10px] text-slate-500 uppercase tracking-widest" data-version>{LEARN_RV_VERSION}</span>
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-12 h-16 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+          <BrandMark className="w-7 h-7 flex-none" />
+          <span className="mono text-sm tracking-wider text-slate-100 whitespace-nowrap">learn-rv</span>
+          <span className="mono text-[10px] text-slate-500 uppercase tracking-widest whitespace-nowrap hidden xs:inline sm:inline" data-version>{LEARN_RV_VERSION}</span>
         </div>
-        <nav className="flex items-center gap-7 mono text-[12px] uppercase tracking-widest">
-          <a href="#what" className="text-slate-500 hover:text-sky-400 transition hidden sm:inline">What</a>
-          <a href="#why" className="text-slate-500 hover:text-sky-400 transition hidden sm:inline">Why</a>
-          <a href="#install" className="text-slate-500 hover:text-sky-400 transition hidden sm:inline">Install</a>
-          <Link href="/start" className="text-slate-200 hover:text-sky-400 transition">
-            Open dashboard <span className="text-sky-400">→</span>
+        <nav className="flex items-center gap-4 sm:gap-7 mono text-[11px] sm:text-[12px] uppercase tracking-widest">
+          <a href="#what" className="text-slate-500 hover:text-sky-400 transition hidden md:inline">What</a>
+          <a href="#why" className="text-slate-500 hover:text-sky-400 transition hidden md:inline">Why</a>
+          <a href="#install" className="text-slate-500 hover:text-sky-400 transition hidden md:inline">Install</a>
+          <Link href="/start" className="text-slate-200 hover:text-sky-400 transition whitespace-nowrap">
+            <span className="hidden sm:inline">Open dashboard </span><span className="sm:hidden">Start </span><span className="text-sky-400">→</span>
           </Link>
         </nav>
       </div>
@@ -65,13 +65,10 @@ function Hero() {
         <div className="grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6 lg:pr-8">
             <Eyebrow>LOCAL · CITED · YOURS</Eyebrow>
-            <h1 className="mt-6 text-[44px] sm:text-[56px] lg:text-[72px] leading-[1.05] font-bold tracking-[-0.03em] text-slate-50">
-              Your own AI.<br />
-              On a device <span className="text-sky-400 relative inline-block">
-                smaller than a deck of cards
-                <span className="absolute left-0 right-0 -bottom-2 h-[3px] bg-orange-500"></span>
-              </span>.<br />
-              Nothing ever leaves it.
+            <h1 className="mt-6 text-[42px] sm:text-[54px] lg:text-[68px] leading-[1.08] font-bold tracking-[-0.025em] text-slate-50">
+              <span className="block">Your own AI.</span>
+              <span className="block">On a device <span className="text-sky-400 border-b-[3px] border-orange-500 pb-1">smaller than a deck of cards</span>.</span>
+              <span className="block mt-3">Nothing ever leaves it.</span>
             </h1>
             <p className="mt-8 text-[17px] leading-[1.65] text-slate-400 max-w-[44ch]">
               <span className="mono text-sky-300">learn-rv</span> turns any video, podcast, or PDF into a private knowledge base that lives on your{" "}
@@ -159,7 +156,7 @@ function SovereigntyPanel() {
     { axis: "Cited answers w/ timestamps",   notebooklm: true,  chatgpt: false, perplexity: true,  learnRv: true },
   ];
   return (
-    <section id="why" className="py-28 border-b border-slate-800">
+    <section id="why" className="pt-20 pb-24 border-b border-slate-800">
       <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
         <div className="max-w-3xl">
           <Eyebrow>SOVEREIGNTY · LONGEVITY</Eyebrow>
