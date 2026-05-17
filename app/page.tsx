@@ -9,9 +9,9 @@ export default function Home() {
     <main className="min-h-screen text-slate-200">
       <SiteHeader />
       <Hero />
-      <Story />
       <BrainVectors />
       <WhileYouSleep />
+      <Story />
       <SovereigntyPanel />
       <SeedHardware />
       <Install />
@@ -65,46 +65,57 @@ function BrandMark({ className = "" }: { className?: string }) {
 function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-slate-800">
-      {/* Background image with overlay */}
-      <div className="absolute inset-0">
-        <Image
-          src="/img/hero-desk.png"
-          alt=""
-          fill
-          priority
-          className="object-cover opacity-40"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-slate-950/75 to-slate-950/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
-      </div>
-
-      <div className="relative max-w-[1280px] mx-auto px-6 lg:px-12 pt-24 pb-32 lg:pt-32 lg:pb-40">
-        <div className="max-w-3xl">
-          <Eyebrow>FOR PEOPLE WHO JUST UNBOXED A COGNITUM SEED</Eyebrow>
-          <h1 className="display mt-8 text-[42px] sm:text-[64px] lg:text-[84px] leading-[1.02] tracking-[-0.02em] text-slate-50 font-normal">
-            Let&rsquo;s make you an <em className="cream italic" style={{ fontVariationSettings: '"SOFT" 100, "WONK" 1' }}>expert</em> on anything you want.
-          </h1>
-          <p className="mt-10 text-[18px] leading-[1.65] text-slate-300 max-w-[55ch]">
-            Your Seed watches the hours of video so you don&rsquo;t have to. Stores it the way your brain stores knowledge — as <em className="text-amber-300 not-italic">vectors</em>, not files. Hands it back, cited, the moment you ask.
-          </p>
-          <div className="mt-12 flex flex-wrap gap-3">
-            <a href="#brain" className="inline-flex items-center gap-2 px-6 py-3.5 bg-amber-300 text-slate-950 font-medium hover:bg-amber-200 transition rounded-[4px]">
-              Show me how it works <span aria-hidden>↓</span>
-            </a>
-            <Link href="/start" className="inline-flex items-center gap-2 px-6 py-3.5 border border-slate-700 text-slate-100 font-medium hover:border-amber-300 hover:text-amber-300 transition rounded-[4px]">
-              I have my Seed — let&rsquo;s start it up <span aria-hidden>→</span>
-            </Link>
+      <div className="relative max-w-[1280px] mx-auto px-6 lg:px-12 pt-16 pb-20 lg:pt-24 lg:pb-28">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          {/* LEFT: copy */}
+          <div className="lg:col-span-7">
+            <Eyebrow>FOR PEOPLE WHO JUST UNBOXED A COGNITUM ONE SEED</Eyebrow>
+            <h1 className="display mt-6 text-[38px] sm:text-[52px] lg:text-[68px] leading-[1.04] tracking-[-0.02em] text-slate-50 font-normal">
+              Your Cognitum Seed turns hours of video into the <em className="cream italic" style={{ fontVariationSettings: '"SOFT" 100, "WONK" 1' }}>expert</em> you wish you were.
+            </h1>
+            <p className="mt-8 text-[18px] leading-[1.65] text-slate-300 max-w-[52ch]">
+              Point it at a YouTube channel before bed. Your Seed watches every video, distills every insight, and stores it the way <em className="text-amber-300 not-italic">your brain</em> does — as vectors, not files. You wake up. You ask. It answers, cited, in milliseconds.
+            </p>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <a href="#brain" className="inline-flex items-center gap-2 px-6 py-3.5 bg-amber-300 text-slate-950 font-medium hover:bg-amber-200 transition rounded-[4px]">
+                Show me how it works <span aria-hidden>↓</span>
+              </a>
+              <Link href="/start" className="inline-flex items-center gap-2 px-6 py-3.5 border border-slate-700 text-slate-100 font-medium hover:border-amber-300 hover:text-amber-300 transition rounded-[4px]">
+                I have my Seed — let&rsquo;s start it up <span aria-hidden>→</span>
+              </Link>
+            </div>
+            <div className="mt-12 flex flex-wrap items-center gap-x-5 gap-y-2 mono text-[11px] uppercase tracking-widest text-slate-500">
+              <span className="inline-flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-emerald-400 animate-pulse" />
+                <span>shipping <span className="text-emerald-300">{LEARN_RV_VERSION}</span></span>
+              </span>
+              <span className="text-slate-700">·</span>
+              <span>nothing leaves your network</span>
+              <span className="text-slate-700">·</span>
+              <span>your hardware, your data</span>
+            </div>
           </div>
-          <div className="mt-16 flex flex-wrap items-center gap-x-5 gap-y-2 mono text-[11px] uppercase tracking-widest text-slate-500">
-            <span className="inline-flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-emerald-400 animate-pulse" />
-              <span>shipping <span className="text-emerald-300">{LEARN_RV_VERSION}</span></span>
-            </span>
-            <span className="text-slate-700">·</span>
-            <span>nothing leaves your network</span>
-            <span className="text-slate-700">·</span>
-            <span>your hardware, your data</span>
+
+          {/* RIGHT: hero image — knowledge being absorbed into the Seed */}
+          <div className="lg:col-span-5">
+            <figure className="relative">
+              <div className="relative aspect-[3/2] rounded-[6px] overflow-hidden border border-amber-500/20 shadow-2xl shadow-amber-900/20">
+                <Image
+                  src="/img/knowledge-absorbed.png"
+                  alt="A small Cognitum Seed device on a warm wooden desk, with luminous streams of video frames, audio waveforms and book pages cascading into it — knowledge being absorbed and stored as vectors."
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                />
+                {/* Subtle glow */}
+                <div className="absolute inset-0 ring-1 ring-inset ring-amber-300/10 pointer-events-none" />
+              </div>
+              <figcaption className="mt-3 mono text-[10px] uppercase tracking-widest text-slate-500 text-center">
+                <span className="inline-block w-3 h-px bg-amber-300/40 align-middle mr-2" />
+                hours of video distilled into vectors, on a device the size of your wallet
+              </figcaption>
+            </figure>
           </div>
         </div>
       </div>
@@ -304,23 +315,39 @@ function SeedHardware() {
   return (
     <section id="what" className="py-28 border-b border-slate-800">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
-        <div className="max-w-3xl">
-          <Eyebrow warm>THE HARDWARE</Eyebrow>
-          <h2 className="display mt-5 text-[36px] sm:text-[48px] leading-[1.05] text-slate-50 font-normal">
-            A matchbox-sized AI appliance<br/>
-            that lives on <em className="cream italic">your</em> desk.
-          </h2>
-        </div>
-        <div className="grid lg:grid-cols-12 gap-10 mt-14">
-          <div className="lg:col-span-7 text-[16px] leading-[1.75] text-slate-300 space-y-5">
-            <p>The Cognitum One Seed is a small Linux device — Raspberry Pi Zero 2W class hardware in a clean enclosure — that runs <span className="mono text-amber-200">cognitum-agent</span>. Inside that agent: RuVector (a vector database, HNSW-indexed) plus a local inference runtime, exposed over your network or via USB.</p>
-            <p>Plug it in. Forget it&rsquo;s there. It draws about as much power as a USB-charged toothbrush. It indexes whatever you give it, holds onto it as long as the SD card is alive, and answers cited questions from it whenever you ask.</p>
-          </div>
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
+          {/* LEFT: clean device photo */}
           <div className="lg:col-span-5">
-            <dl className="space-y-4 border-l border-amber-300/30 pl-6">
+            <div className="relative aspect-[2/3] rounded-[6px] overflow-hidden border border-slate-800 bg-gradient-to-b from-slate-900 to-slate-950">
+              <Image
+                src="/img/device-hero.png"
+                alt="Apple-keynote-style hero photograph of the Cognitum Seed device — a small matte-black computing appliance with a single cyan LED on a warm walnut surface."
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 40vw, 100vw"
+              />
+            </div>
+            <div className="mt-4 mono text-[10px] uppercase tracking-widest text-slate-500 text-center">
+              <span className="inline-block w-3 h-px bg-amber-300/40 align-middle mr-2" />
+              the Cognitum One Seed · actual size below
+            </div>
+          </div>
+
+          {/* RIGHT: copy + specs */}
+          <div className="lg:col-span-7">
+            <Eyebrow warm>THE HARDWARE</Eyebrow>
+            <h2 className="display mt-5 text-[36px] sm:text-[48px] leading-[1.05] text-slate-50 font-normal">
+              A matchbox-sized AI appliance<br/>
+              that lives on <em className="cream italic">your</em> desk.
+            </h2>
+            <div className="mt-6 text-[16px] leading-[1.75] text-slate-300 space-y-4">
+              <p>The Cognitum One Seed is a small Linux device — Raspberry Pi Zero 2W class hardware in a clean enclosure — running <span className="mono text-amber-200">cognitum-agent</span>: a vector database (RuVector, HNSW-indexed) plus local inference, exposed over your network or via USB.</p>
+              <p>Plug it in. Forget it&rsquo;s there. It draws about as much power as a USB-charged toothbrush. It indexes whatever you feed it, holds onto it forever, and answers cited questions from it whenever you ask.</p>
+            </div>
+            <dl className="mt-8 space-y-3 border-l border-amber-300/30 pl-6">
               <SpecRow label="Footprint">~65 × 30 × 12 mm. Smaller than a credit card.</SpecRow>
               <SpecRow label="Storage">Up to 32 GB on microSD. Hundreds of hours of transcribed video.</SpecRow>
-              <SpecRow label="Power">~2W typical. USB charger and forget it.</SpecRow>
+              <SpecRow label="Power">~2W typical. USB charger, then forget about it.</SpecRow>
               <SpecRow label="Networking">WiFi · mDNS discovery · USB gadget mode for travel.</SpecRow>
               <SpecRow label="Open">MCP server for Claude/Cursor. REST API. Rust, Node, Python SDKs.</SpecRow>
             </dl>
