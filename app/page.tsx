@@ -85,23 +85,30 @@ function Hero() {
       <div className="relative max-w-[1280px] mx-auto px-5 sm:px-6 lg:px-12 pt-10 pb-20 lg:pt-20 lg:pb-28">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
-          {/* IMAGE first on mobile (order-1), second on desktop (lg:order-2) — bigger + more cinematic */}
+          {/* IMAGE first on mobile (order-1), second on desktop (lg:order-2) — the actual Seed 0 product */}
           <div className="lg:col-span-7 order-1 lg:order-2">
             <figure className="relative">
               <div className="relative aspect-[4/3] sm:aspect-[3/2] lg:aspect-[4/3] rounded-[8px] overflow-hidden border border-amber-500/25 shadow-2xl shadow-amber-900/40 ring-1 ring-inset ring-amber-300/10">
                 <Image
-                  src="/img/knowledge-absorbed.png"
-                  alt="A Cognitum Seed device on a warm wooden desk, with luminous streams of video frames, audio waveforms and book pages cascading into it — knowledge being absorbed and stored as vectors."
+                  src="/img/seed-zero.png"
+                  alt="The Cognitum Seed 0 — a flat matte-black appliance with a live LED matrix on the front face, photographed beside its branded packaging."
                   fill
                   priority
                   className="object-cover"
                   sizes="(min-width: 1024px) 56vw, 100vw"
                 />
+
+                {/* Top-right "now shipping" pill */}
+                <div className="absolute top-4 right-4 inline-flex items-center gap-2 bg-slate-950/85 backdrop-blur border border-emerald-500/30 px-2.5 py-1 rounded-[3px]">
+                  <span className="w-1.5 h-1.5 bg-emerald-400 animate-pulse" />
+                  <span className="mono text-[10px] uppercase tracking-widest text-emerald-300">Seed 0 · now shipping</span>
+                </div>
+
                 {/* Floating mono label overlay — anchors what they're looking at */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent">
                   <div className="mono text-[10px] uppercase tracking-widest text-amber-200 flex items-center gap-2">
                     <span className="inline-block w-3 h-px bg-amber-300/70" />
-                    a Cognitum Seed absorbing 15+ hours of video · stored as vectors
+                    Cognitum Seed 0 · live LED matrix shows ingest + query activity
                   </div>
                 </div>
               </div>
@@ -131,7 +138,7 @@ function Hero() {
                 <span>shipping <span className="text-emerald-300">{COGNITUM_LEARN_VERSION}</span></span>
               </span>
               <span className="text-slate-700">·</span>
-              <span>pairs with the <a href="#hardware" className="text-amber-300/80 hover:text-amber-300 underline decoration-amber-500/30 underline-offset-2">Cognitum Seed</a></span>
+              <span>pairs with the <a href="#hardware" className="text-amber-300/80 hover:text-amber-300 underline decoration-amber-500/30 underline-offset-2">Cognitum Seed 0</a></span>
             </div>
           </div>
         </div>
@@ -334,21 +341,23 @@ function SeedHardware() {
   return (
     <section id="hardware" className="py-28 border-b border-slate-800">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
+
+        {/* — Current product: Seed 0 — */}
         <div className="grid lg:grid-cols-12 gap-12 items-center">
-          {/* LEFT: clean device photo */}
+          {/* LEFT: real Seed 0 photo */}
           <div className="lg:col-span-5">
-            <div className="relative aspect-[2/3] rounded-[6px] overflow-hidden border border-slate-800 bg-gradient-to-b from-slate-900 to-slate-950">
+            <div className="relative aspect-[4/3] rounded-[6px] overflow-hidden border border-slate-800 bg-gradient-to-b from-slate-900 to-slate-950">
               <Image
-                src="/img/device-hero.png"
-                alt="Apple-keynote-style hero photograph of the Cognitum Seed device — a small matte-black computing appliance with a single cyan LED on a warm walnut surface."
+                src="/img/seed-zero.png"
+                alt="The Cognitum Seed 0 — flat matte-black enclosure with a live LED matrix display on the front face, beside its branded packaging."
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 40vw, 100vw"
               />
             </div>
-            <div className="mt-4 mono text-[10px] uppercase tracking-widest text-slate-500 text-center">
-              <span className="inline-block w-3 h-px bg-amber-300/40 align-middle mr-2" />
-              the Cognitum One Seed · actual size below
+            <div className="mt-4 mono text-[10px] uppercase tracking-widest text-emerald-300/80 text-center flex items-center justify-center gap-2">
+              <span className="w-1.5 h-1.5 bg-emerald-400 animate-pulse" />
+              Cognitum Seed 0 · shipping now
             </div>
           </div>
 
@@ -356,28 +365,89 @@ function SeedHardware() {
           <div className="lg:col-span-7">
             <Eyebrow warm>THE HARDWARE</Eyebrow>
             <h2 className="display mt-5 text-[36px] sm:text-[48px] leading-[1.05] text-slate-50 font-normal">
-              A matchbox-sized AI appliance<br/>
-              that lives on <em className="cream italic">your</em> desk.
+              A palm-sized appliance with a<br/>
+              <em className="cream italic">live LED matrix on the front.</em>
             </h2>
             <div className="mt-6 text-[16px] leading-[1.75] text-slate-300 space-y-4">
-              <p>The Cognitum One Seed is a small Linux device — Raspberry Pi Zero 2W class hardware in a clean enclosure — running <span className="mono text-amber-200">cognitum-agent</span>: a vector database (RuVector, HNSW-indexed) plus local inference, exposed over your network or via USB.</p>
-              <p>Plug it in. Forget it&rsquo;s there. It draws about as much power as a USB-charged toothbrush. It indexes whatever you feed it, holds onto it forever, and answers cited questions from it whenever you ask.</p>
+              <p>The Cognitum Seed 0 is a small Linux device running <span className="mono text-amber-200">cognitum-agent</span>: a vector database (RuVector, HNSW-indexed) plus local inference, exposed over your network or via USB.</p>
+              <p>The LED matrix on the front face shows ingest progress, query activity, and Seed status — you can <em className="text-amber-300 not-italic">see</em> when it&rsquo;s working. Plug it in, point it at your sources, watch it light up.</p>
             </div>
             <dl className="mt-8 space-y-3 border-l border-amber-300/30 pl-6">
-              <SpecRow label="Footprint">~65 × 30 × 12 mm. Smaller than a credit card.</SpecRow>
-              <SpecRow label="Storage">Up to 32 GB on microSD. Hundreds of hours of transcribed video.</SpecRow>
-              <SpecRow label="Power">~2W typical. USB charger, then forget about it.</SpecRow>
+              <SpecRow label="Footprint">Palm-sized, flat horizontal enclosure. Lives quietly on a bookshelf.</SpecRow>
+              <SpecRow label="Display">Live LED matrix — ingest progress, query activity, Seed status.</SpecRow>
+              <SpecRow label="Storage">microSD. Hundreds of hours of transcribed video per card.</SpecRow>
+              <SpecRow label="Power">USB-powered. Sips current. Run it 24/7 and forget about it.</SpecRow>
               <SpecRow label="Networking">WiFi · mDNS discovery · USB gadget mode for travel.</SpecRow>
               <SpecRow label="Open">MCP server for Claude/Cursor. REST API. Rust, Node, Python SDKs.</SpecRow>
             </dl>
             <a href="https://cognitum.one" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 mt-8 mono text-[12px] uppercase tracking-widest text-amber-300 hover:text-amber-200 transition group">
               <span className="inline-block w-4 h-px bg-amber-300 group-hover:w-8 transition-all" />
-              Get one at cognitum.one
+              Get a Seed 0 at cognitum.one
             </a>
           </div>
         </div>
+
+        {/* — Coming next: Seed 2 — */}
+        <SeedTwoPreview />
+
       </div>
     </section>
+  );
+}
+
+function SeedTwoPreview() {
+  return (
+    <div className="mt-24 pt-16 border-t border-slate-800">
+      <div className="grid lg:grid-cols-12 gap-10 items-start">
+        {/* LEFT: copy */}
+        <div className="lg:col-span-5">
+          <div className="inline-flex items-center gap-2 mono text-[11px] uppercase tracking-widest text-amber-300/90 border border-amber-500/30 bg-amber-500/5 px-3 py-1.5 rounded-[3px]">
+            <span className="w-1.5 h-1.5 bg-amber-400" />
+            coming next · Seed 2
+          </div>
+          <h3 className="display mt-5 text-[26px] sm:text-[32px] leading-[1.15] text-slate-50 font-normal">
+            More compute. More storage.<br/>
+            <em className="cream italic">More ports for everything.</em>
+          </h3>
+          <div className="mt-5 text-[15px] leading-[1.7] text-slate-400 space-y-3">
+            <p>The Seed 2 steps up to a faceted matte-black enclosure with a full back-panel of I/O — gigabit Ethernet, USB-A 3.0, microSD, dedicated power. Same software stack as the Seed 0, larger headroom for bigger knowledge bases and faster local inference.</p>
+            <p>If you&rsquo;re evaluating for a corner-of-the-desk install where ports matter, this is the one to wait for.</p>
+          </div>
+          <a href="https://cognitum.one" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 mt-6 mono text-[11px] uppercase tracking-widest text-amber-300/80 hover:text-amber-300 transition group">
+            <span className="inline-block w-3 h-px bg-amber-300/60 group-hover:w-6 transition-all" />
+            Get notified at cognitum.one
+          </a>
+        </div>
+
+        {/* RIGHT: two images */}
+        <div className="lg:col-span-7 grid grid-cols-2 gap-3">
+          <div className="relative aspect-square rounded-[6px] overflow-hidden border border-slate-800 bg-slate-900">
+            <Image
+              src="/img/seed-two-preview.png"
+              alt="Cognitum Seed 2 next-gen device — top-down view of a matte-black enclosure with a faceted geometric top surface and the 'cognitum' wordmark on the front face."
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 30vw, 50vw"
+            />
+            <div className="absolute bottom-0 left-0 right-0 p-2.5 bg-gradient-to-t from-slate-950/95 to-transparent">
+              <div className="mono text-[9px] uppercase tracking-widest text-amber-200/80">faceted top · cognitum wordmark</div>
+            </div>
+          </div>
+          <div className="relative aspect-square rounded-[6px] overflow-hidden border border-slate-800 bg-slate-900">
+            <Image
+              src="/img/seed-two-ports.png"
+              alt="Cognitum Seed 2 back-panel detail showing Ethernet RJ45, two USB-A 3.0 ports, microSD slot, and power input."
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 30vw, 50vw"
+            />
+            <div className="absolute bottom-0 left-0 right-0 p-2.5 bg-gradient-to-t from-slate-950/95 to-transparent">
+              <div className="mono text-[9px] uppercase tracking-widest text-amber-200/80">ethernet · 2× USB 3.0 · microSD · power</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
