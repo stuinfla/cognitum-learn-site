@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { COGNITUM_LEARN_VERSION } from "./version";
+import { CitedAnswerDemo } from "./cited-answer-demo";
 
 const INSTALL_CMD = "cargo install --git https://github.com/stuinfla/cognitum-learn learn-cli";
 
@@ -10,7 +11,7 @@ export default function Home() {
       <SiteHeader />
       <Hero />
       <LiveWalkthrough />
-      <CitedAnswerMock />
+      <CitedAnswerDemo />
       <WhileYouSleep />
       <UnderTheHood />
       <BrainVectors />
@@ -100,7 +101,7 @@ function Hero() {
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent">
                   <div className="mono text-[10px] uppercase tracking-widest text-amber-200 flex items-center gap-2">
                     <span className="inline-block w-3 h-px bg-amber-300/70" />
-                    your Cognitum Seed absorbing 15+ hours of video · stored as vectors
+                    a Cognitum Seed absorbing 15+ hours of video · stored as vectors
                   </div>
                 </div>
               </div>
@@ -298,7 +299,7 @@ function SovereigntyPanel() {
             </thead>
             <tbody>
               {rows.map((r, i) => (
-                <tr key={r.axis} className={i % 2 ? "bg-slate-950" : "bg-slate-900/20"}>
+                <tr key={r.axis} className={`${i % 2 ? "bg-slate-950" : "bg-slate-900/20"} hover:bg-slate-900/60 transition-colors`}>
                   <td className="px-6 py-4 text-slate-200">{r.axis}</td>
                   <td className="px-4 py-4 text-center"><Mark on={r.notebooklm} /></td>
                   <td className="px-4 py-4 text-center"><Mark on={r.chatgpt} /></td>
@@ -499,7 +500,7 @@ function FAQ() {
               <details key={it.q} open={idx < 2} className="group border border-slate-800 hover:border-slate-700 bg-slate-900/20 rounded-[4px]">
                 <summary className="cursor-pointer p-5 flex items-start justify-between gap-4 text-slate-100 font-medium text-[15px] list-none">
                   <span>{it.q}</span>
-                  <span className="mono text-amber-300 transition-transform group-open:rotate-45 text-xl leading-none flex-none">+</span>
+                  <span className="mono text-amber-300 transition-transform duration-300 ease-out group-open:rotate-45 text-xl leading-none flex-none">+</span>
                 </summary>
                 <div className="px-5 pb-5 text-slate-400 text-[14px] leading-[1.75] border-t border-slate-800 pt-4">{it.a}</div>
               </details>
@@ -653,13 +654,17 @@ function LiveWalkthrough() {
 
         <ol className="grid lg:grid-cols-2 gap-4 lg:gap-6">
           {cards.map((c, i) => (
-            <li key={c.cmd} className="border border-slate-800 hover:border-slate-700 bg-slate-900/30 rounded-[6px] p-5 lg:p-6">
+            <li
+              key={c.cmd}
+              className="group border border-slate-800 hover:border-amber-500/30 bg-slate-900/30 hover:bg-slate-900/50 rounded-[6px] p-5 lg:p-6 transition-colors duration-200"
+            >
               <div className="flex items-baseline gap-3 mb-3">
-                <span className="mono text-[10px] text-amber-300 border border-amber-500/30 px-1.5 py-0.5 rounded-[2px]">{`STEP ${i + 1}`}</span>
+                <span className="mono text-[10px] text-amber-300 border border-amber-500/30 px-1.5 py-0.5 rounded-[2px] group-hover:bg-amber-500/10 transition-colors">{`STEP ${i + 1}`}</span>
                 <h3 className="text-[15px] sm:text-[16px] font-semibold text-slate-100">{c.title}</h3>
               </div>
-              <div className="mono text-[13px] text-amber-200 bg-slate-950 border border-slate-800 px-4 py-3 rounded-[4px] overflow-x-auto whitespace-pre">
+              <div className="mono text-[13px] text-amber-200 bg-slate-950 border border-slate-800 group-hover:border-amber-500/20 px-4 py-3 rounded-[4px] overflow-x-auto whitespace-pre transition-colors">
                 <span className="text-slate-600 select-none">$ </span>{c.cmd}
+                <span aria-hidden className="inline-block w-[7px] h-[14px] bg-amber-300/80 align-middle ml-1 animate-pulse" />
               </div>
               <p className="mt-3 text-slate-400 text-[13.5px] leading-[1.65]">{c.blurb}</p>
               <pre className="mt-3 mono text-[12px] leading-[1.7] text-slate-400 bg-slate-950/60 border border-slate-900 px-3 py-2.5 rounded-[3px] overflow-x-auto">
@@ -672,83 +677,6 @@ function LiveWalkthrough() {
         <p className="mt-8 mono text-[11px] uppercase tracking-widest text-slate-600">
           terminal output above is illustrative · real numbers vary by topic
         </p>
-      </div>
-    </section>
-  );
-}
-
-// ── Cited answer mock (the artifact lifted from /start) ────────────────────
-
-function CitedAnswerMock() {
-  return (
-    <section className="border-b border-slate-800 bg-slate-950">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-12 py-24 lg:py-28">
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-4">
-            <Eyebrow>WHAT AN ANSWER LOOKS LIKE</Eyebrow>
-            <h2 className="display mt-5 text-[34px] sm:text-[40px] leading-[1.1] text-slate-50 font-normal">
-              Cited.<br/>
-              Timestamped.<br/>
-              <em className="cream italic">Verifiable.</em>
-            </h2>
-            <p className="mt-6 text-slate-400 text-[15px] leading-[1.7]">
-              Every claim links to the exact second of the exact source. Click a citation, it opens the video at that timestamp. No hallucinated facts hiding behind authoritative tone.
-            </p>
-          </div>
-
-          <div className="lg:col-span-8">
-            <div className="border border-amber-500/20 bg-slate-900/40 rounded-[6px] overflow-hidden shadow-2xl shadow-amber-900/10">
-              {/* Header bar — looks like a terminal/app chrome */}
-              <div className="flex items-center justify-between px-4 py-2.5 bg-slate-950 border-b border-slate-800">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-slate-700" />
-                  <span className="w-2 h-2 rounded-full bg-slate-700" />
-                  <span className="w-2 h-2 rounded-full bg-slate-700" />
-                </div>
-                <div className="mono text-[10px] uppercase tracking-widest text-slate-500">
-                  longevity.rvf · 91 h · 14,800 chunks
-                </div>
-              </div>
-
-              {/* Question */}
-              <div className="px-5 py-4 border-b border-slate-800 bg-slate-900/30">
-                <div className="mono text-[10px] uppercase tracking-widest text-amber-300/70 mb-2">YOU ASKED</div>
-                <div className="text-[16px] text-slate-100 leading-[1.5]">
-                  &ldquo;what does Huberman actually say about morning light?&rdquo;
-                </div>
-              </div>
-
-              {/* Answer */}
-              <div className="px-5 py-5 border-b border-slate-800">
-                <div className="mono text-[10px] uppercase tracking-widest text-emerald-300/70 mb-2">SEED ANSWERED · 850 ms</div>
-                <div className="text-[15.5px] text-slate-200 leading-[1.7]">
-                  Get 5–10 minutes of unfiltered outdoor light within the first hour of waking <span className="text-amber-300/80 mono text-[12px]">[1]</span>. This anchors your circadian clock, suppresses morning melatonin, and is the single highest-leverage input for both daytime energy and nighttime sleep quality <span className="text-amber-300/80 mono text-[12px]">[2]</span>. On overcast days, roughly double the duration to compensate for the reduction in UV and blue-spectrum intensity <span className="text-amber-300/80 mono text-[12px]">[3]</span>.
-                </div>
-              </div>
-
-              {/* Citations */}
-              <div className="px-5 py-4">
-                <div className="mono text-[10px] uppercase tracking-widest text-slate-500 mb-3">CITATIONS · click any to open at timestamp</div>
-                <ol className="space-y-2 text-[13.5px]">
-                  {[
-                    { n: 1, ep: "Master Your Sleep · Andrew Huberman", t: "12:48" },
-                    { n: 2, ep: "Huberman Lab Ep. 68 · with Matthew Walker", t: "23:14" },
-                    { n: 3, ep: "Optimize Morning Routines · Huberman Lab", t: "04:32" },
-                  ].map((c) => (
-                    <li key={c.n} className="flex items-baseline gap-3 group">
-                      <span className="mono text-[12px] text-amber-300/80 flex-none">[{c.n}]</span>
-                      <span className="text-slate-300 group-hover:text-amber-300 transition cursor-pointer">{c.ep}</span>
-                      <span className="ml-auto mono text-[11px] text-slate-500 flex-none">{c.t}</span>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            </div>
-            <p className="mt-4 mono text-[11px] uppercase tracking-widest text-slate-600 text-right">
-              this is a static preview · the real dashboard renders identical structure
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );
