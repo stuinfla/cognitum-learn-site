@@ -4,7 +4,7 @@ import { join } from "path";
 
 // Open Graph share image — 1200×630, the universal social-card spec.
 // Rendered server-side at build time via @vercel/og; embeds the real
-// Seed 0 photo as base64 so it works at first deploy without a URL.
+// v0 Appliance photo as base64 so it works at first deploy without a URL.
 
 export const runtime = "nodejs";
 export const size = { width: 1200, height: 630 };
@@ -13,7 +13,7 @@ export const alt =
   "Cognitum Learn — turn any topic into an in-house expert you can ask anything. Videos → cited answers on your hardware.";
 
 export default async function OpengraphImage() {
-  // Embed the real Seed 0 photo (no URL dependency)
+  // Embed the real v0 Appliance photo (no URL dependency)
   const seedPhoto = await readFile(
     join(process.cwd(), "public", "img", "seed-on-mac.png")
   );
@@ -197,7 +197,7 @@ export default async function OpengraphImage() {
             }}
           >
             <div style={{ width: 6, height: 6, background: "#34d399", borderRadius: 999 }} />
-            Cognitum Seed 0 · now shipping
+            Cognitum One Appliance · now shipping
           </div>
         </div>
       </div>

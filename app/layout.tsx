@@ -22,9 +22,9 @@ const mono = JetBrains_Mono({
 });
 
 const SITE_URL = "https://cognitum-learn-site.vercel.app";
-const TITLE = "Cognitum Learn — your Cognitum Seed becomes an expert, for you, while you sleep";
+const TITLE = "Cognitum Learn — your Cognitum One Appliance becomes an expert, for you, while you sleep";
 const DESCRIPTION =
-  "Point your Cognitum Seed at a YouTube channel before bed. It watches every video, distills every insight, and stores it the way your brain stores knowledge — as vectors. You wake up an expert.";
+  "Point your Cognitum One Appliance at a YouTube channel before bed. It watches every video, distills every insight, and stores it the way your brain stores knowledge — as vectors. You wake up an expert.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -33,7 +33,8 @@ export const metadata: Metadata = {
   applicationName: "Cognitum Learn",
   authors: [{ name: "Stuart Kerr", url: "https://cognitum.one" }],
   keywords: [
-    "Cognitum Seed",
+    "Cognitum One Appliance",
+    "Cognitum One Appliance",
     "Cognitum Learn",
     "self-learning AI",
     "video knowledge base",
