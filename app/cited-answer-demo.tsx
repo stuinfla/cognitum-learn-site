@@ -133,40 +133,52 @@ export function CitedAnswerDemo() {
               Four knowledge bases the Seed could host at once. Every answer cites the exact second of the source it came from — not a paraphrase, not a summary, the actual moment.
             </p>
 
-            {/* Topic tabs */}
-            <ul className="mt-8 space-y-2" role="tablist">
+            {/* Topic tabs — WAI-ARIA tablist: role="tablist" + DIRECT role="tab" buttons (no li wrappers) */}
+            <div
+              className="mt-8 space-y-2"
+              role="tablist"
+              aria-orientation="vertical"
+              aria-label="Knowledge-base topics"
+            >
               {DEMOS.map((d, i) => {
                 const isActive = i === activeIdx;
                 return (
-                  <li key={d.id}>
-                    <button
-                      role="tab"
-                      aria-selected={isActive}
-                      onClick={() => handleSwitch(i)}
-                      className={`group w-full text-left px-4 py-3 rounded-[3px] border transition-all duration-200 ${
-                        isActive
-                          ? "border-amber-500/40 bg-amber-500/10 text-amber-100"
-                          : "border-slate-800 hover:border-slate-700 hover:bg-slate-900/40 text-slate-300 hover:text-slate-100"
-                      }`}
-                    >
-                      <div className={`font-mono text-[10px] uppercase tracking-widest mb-1 ${isActive ? "text-amber-300" : "text-slate-500 group-hover:text-amber-300/70"} transition-colors`}>
-                        {d.rvfFile}
-                      </div>
-                      <div className="text-[14px] leading-snug">{d.topicLabel}</div>
-                    </button>
-                  </li>
+                  <button
+                    key={d.id}
+                    role="tab"
+                    aria-selected={isActive}
+                    aria-controls="cited-answer-panel"
+                    id={`cited-answer-tab-${d.id}`}
+                    tabIndex={isActive ? 0 : -1}
+                    onClick={() => handleSwitch(i)}
+                    className={`group w-full text-left px-4 py-3 rounded-[3px] border transition-all duration-200 ${
+                      isActive
+                        ? "border-amber-500/40 bg-amber-500/10 text-amber-100"
+                        : "border-slate-800 hover:border-slate-700 hover:bg-slate-900/40 text-slate-300 hover:text-slate-100"
+                    }`}
+                  >
+                    <div className={`font-mono text-[10px] uppercase tracking-widest mb-1 ${isActive ? "text-amber-300" : "text-slate-400 group-hover:text-amber-300/80"} transition-colors`}>
+                      {d.rvfFile}
+                    </div>
+                    <div className="text-[14px] leading-snug">{d.topicLabel}</div>
+                  </button>
                 );
               })}
-            </ul>
+            </div>
 
-            <p className="mt-6 font-mono text-[10px] uppercase tracking-widest text-slate-600 leading-relaxed">
+            <p className="mt-6 font-mono text-[10px] uppercase tracking-widest text-slate-400 leading-relaxed">
               static preview · the live dashboard renders identical structure when you run <span className="text-amber-200">learn ui</span>
             </p>
           </div>
 
-          {/* RIGHT — the answer terminal */}
+          {/* RIGHT — the answer terminal (tabpanel for the tablist above) */}
           <div className="lg:col-span-8">
-            <div className="border border-amber-500/20 bg-slate-900/40 rounded-[6px] overflow-hidden shadow-2xl shadow-amber-900/10">
+            <div
+              id="cited-answer-panel"
+              role="tabpanel"
+              aria-labelledby={`cited-answer-tab-${demo.id}`}
+              className="border border-amber-500/20 bg-slate-900/40 rounded-[6px] overflow-hidden shadow-2xl shadow-amber-900/10"
+            >
 
               {/* Chrome bar */}
               <div className="flex items-center justify-between px-4 py-2.5 bg-slate-950 border-b border-slate-800">
@@ -175,7 +187,7 @@ export function CitedAnswerDemo() {
                   <span className="w-2 h-2 rounded-full bg-slate-700" />
                   <span className="w-2 h-2 rounded-full bg-slate-700" />
                 </div>
-                <div className="font-mono text-[10px] uppercase tracking-widest text-slate-500 transition-opacity duration-200" key={`meta-${demo.id}`}>
+                <div className="font-mono text-[10px] uppercase tracking-widest text-slate-400 transition-opacity duration-200" key={`meta-${demo.id}`}>
                   {demo.rvfMeta}
                 </div>
               </div>
@@ -216,7 +228,7 @@ export function CitedAnswerDemo() {
                 key={`c-${demo.id}`}
                 className={`px-5 py-4 transition-opacity duration-200 ${thinking ? "opacity-30" : "opacity-100"}`}
               >
-                <div className="font-mono text-[10px] uppercase tracking-widest text-slate-500 mb-3">CITATIONS · click any to open at timestamp</div>
+                <div className="font-mono text-[10px] uppercase tracking-widest text-slate-400 mb-3">CITATIONS · click any to open at timestamp</div>
                 <ol className="space-y-2 text-[13.5px]">
                   {demo.citations.map((c) => (
                     <li

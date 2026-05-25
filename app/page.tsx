@@ -35,7 +35,7 @@ function SiteHeader() {
         <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           <BrandMark className="w-7 h-7 flex-none" />
           <span className="font-medium tracking-tight text-slate-100 whitespace-nowrap">cognitum-learn</span>
-          <span className="mono text-[10px] text-slate-500 uppercase tracking-widest whitespace-nowrap" data-version>{COGNITUM_LEARN_VERSION}</span>
+          <span className="mono text-[10px] text-slate-400 uppercase tracking-widest whitespace-nowrap" data-version>{COGNITUM_LEARN_VERSION}</span>
         </div>
         <nav className="flex items-center gap-4 sm:gap-7 mono text-[11px] sm:text-[12px] uppercase tracking-widest">
           <a href="#brain" className="text-slate-500 hover:text-amber-300 transition hidden md:inline">How it remembers</a>
@@ -90,10 +90,11 @@ function Hero() {
             <figure className="relative">
               <div className="relative aspect-[4/3] sm:aspect-[3/2] lg:aspect-[4/3] rounded-[8px] overflow-hidden border border-amber-500/25 shadow-2xl shadow-amber-900/40 ring-1 ring-inset ring-amber-300/10">
                 <Image
-                  src="/img/seed-box.png"
+                  src="/img/seed-box.webp"
                   alt="The Cognitum One Seed — a flat matte-black appliance with the COGNITUM wordmark on top, sitting on a MacBook keyboard for scale."
                   fill
                   priority
+                  fetchPriority="high"
                   className="object-cover"
                   sizes="(min-width: 1024px) 56vw, (min-width: 640px) 90vw, 92vw"
                 />
@@ -132,7 +133,7 @@ function Hero() {
                 Try the demo <span aria-hidden>→</span>
               </Link>
             </div>
-            <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 mono text-[11px] uppercase tracking-widest text-slate-500">
+            <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 mono text-[11px] uppercase tracking-widest text-slate-400">
               <span className="inline-flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-emerald-400 animate-pulse" />
                 <span>shipping <span className="text-emerald-300">{COGNITUM_LEARN_VERSION}</span></span>
@@ -254,7 +255,7 @@ function WhileYouSleep() {
                 </li>
               ))}
             </ol>
-            <div className="mt-8 mono text-[11px] uppercase tracking-widest text-slate-500 flex items-center gap-3">
+            <div className="mt-8 mono text-[11px] uppercase tracking-widest text-slate-400 flex items-center gap-3">
               <span className="inline-block w-4 h-px bg-slate-700" />
               one example. swap in any channel, any podcast feed, any documentary library.
             </div>
@@ -302,10 +303,10 @@ function SovereigntyPanel() {
           <table className="w-full text-sm min-w-[640px]">
             <thead>
               <tr className="bg-slate-900/60 border-b border-slate-800">
-                <th className="text-left px-6 py-4 mono text-[11px] uppercase tracking-widest text-slate-500 font-normal">Capability</th>
-                <th className="px-4 py-4 mono text-[11px] uppercase tracking-widest text-slate-500 font-normal">NotebookLM</th>
-                <th className="px-4 py-4 mono text-[11px] uppercase tracking-widest text-slate-500 font-normal">ChatGPT</th>
-                <th className="px-4 py-4 mono text-[11px] uppercase tracking-widest text-slate-500 font-normal">Perplexity</th>
+                <th className="text-left px-6 py-4 mono text-[11px] uppercase tracking-widest text-slate-400 font-normal">Capability</th>
+                <th className="px-4 py-4 mono text-[11px] uppercase tracking-widest text-slate-400 font-normal">NotebookLM</th>
+                <th className="px-4 py-4 mono text-[11px] uppercase tracking-widest text-slate-400 font-normal">ChatGPT</th>
+                <th className="px-4 py-4 mono text-[11px] uppercase tracking-widest text-slate-400 font-normal">Perplexity</th>
                 <th className="px-4 py-4 mono text-[11px] uppercase tracking-widest text-amber-300 font-medium">cognitum-learn</th>
               </tr>
             </thead>
@@ -323,7 +324,7 @@ function SovereigntyPanel() {
           </table>
         </div>
 
-        <p className="mt-6 mono text-[11px] uppercase tracking-widest text-slate-600 text-right">
+        <p className="mt-6 mono text-[11px] uppercase tracking-widest text-slate-400 text-right">
           capabilities change · sovereignty does not
         </p>
       </div>
@@ -353,7 +354,7 @@ function SeedHardware() {
           <div className="lg:col-span-5">
             <div className="relative aspect-[4/3] rounded-[6px] overflow-hidden border border-slate-800 bg-gradient-to-b from-slate-900 to-slate-950">
               <Image
-                src="/img/seed-on-mac.png"
+                src="/img/seed-on-mac.webp"
                 alt="The Cognitum One Seed photographed front-facing — flat matte-black enclosure with the live LED matrix display visible across the front face, sitting atop a Mac mini."
                 fill
                 className="object-cover"
@@ -485,7 +486,7 @@ function Install() {
             <p className="mt-5 text-slate-400 text-[17px] leading-[1.7]">
               <span className="mono text-amber-200">cognitum-learn</span> is a pure-Rust workspace. Right now installing means <a className="text-amber-300 hover:text-amber-200 underline decoration-amber-500/40 underline-offset-2" href="https://rustup.rs" target="_blank" rel="noreferrer">the Rust toolchain</a> + a ~3-minute compile. Pre-built binaries for everyone else are in flight.
             </p>
-            <p className="mt-6 mono text-[11px] uppercase tracking-widest text-slate-600 leading-relaxed">
+            <p className="mt-6 mono text-[11px] uppercase tracking-widest text-slate-400 leading-relaxed">
               compiles in ~3-5 min · installs to ~/.cargo/bin/ · no system packages touched
             </p>
           </div>
@@ -632,14 +633,14 @@ function SiteFooter() {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-12 flex flex-wrap items-center justify-between gap-6">
         <div className="flex items-center gap-3">
           <BrandMark className="w-5 h-5" />
-          <span className="mono text-[11px] uppercase tracking-widest text-slate-500">
+          <span className="mono text-[11px] uppercase tracking-widest text-slate-400">
             cognitum-learn <span data-version-footer>{COGNITUM_LEARN_VERSION}</span> · open source
           </span>
         </div>
-        <div className="flex items-center gap-6 mono text-[11px] uppercase tracking-widest text-slate-500">
+        <div className="flex items-center gap-6 mono text-[11px] uppercase tracking-widest text-slate-400">
           <a href="https://github.com/stuinfla/cognitum-learn" className="hover:text-amber-300 transition">GitHub</a>
           <a href="https://cognitum.one" className="hover:text-amber-300 transition">cognitum.one</a>
-          <span className="text-slate-700">Built in public</span>
+          <span className="text-slate-400">Built in public</span>
         </div>
       </div>
     </footer>
@@ -749,7 +750,7 @@ function LiveWalkthrough() {
           ))}
         </ol>
 
-        <p className="mt-8 mono text-[11px] uppercase tracking-widest text-slate-600">
+        <p className="mt-8 mono text-[11px] uppercase tracking-widest text-slate-400">
           terminal output above is illustrative · real numbers vary by topic
         </p>
       </div>
@@ -834,7 +835,7 @@ function DataFlow() {
 
         {/* Compute-zone labels above the pipeline (desktop only) */}
         <div className="hidden lg:grid grid-cols-6 gap-2 mb-3">
-          <div className="col-span-5 mono text-[10px] uppercase tracking-widest text-slate-500 flex items-center gap-2">
+          <div className="col-span-5 mono text-[10px] uppercase tracking-widest text-slate-400 flex items-center gap-2">
             <span className="inline-block w-3 h-px bg-slate-600" />
             on your Mac · temporary workspace
           </div>
@@ -896,7 +897,7 @@ function DataFlow() {
 
               {/* Click to reveal nerd detail */}
               <details className="mt-3 group/d">
-                <summary className="list-none cursor-pointer mono text-[10px] uppercase tracking-widest text-slate-500 hover:text-amber-300 transition-colors flex items-center gap-2 select-none">
+                <summary className="list-none cursor-pointer mono text-[10px] uppercase tracking-widest text-slate-400 hover:text-amber-300 transition-colors flex items-center gap-2 select-none">
                   <span className="text-amber-300 transition-transform duration-200 group-open/d:rotate-45 text-base leading-none">+</span>
                   how it actually runs
                 </summary>
@@ -909,7 +910,7 @@ function DataFlow() {
         </ol>
 
         {/* Footnote */}
-        <p className="mt-10 mono text-[11px] uppercase tracking-widest text-slate-600 flex items-center gap-2">
+        <p className="mt-10 mono text-[11px] uppercase tracking-widest text-slate-400 flex items-center gap-2">
           <span className="inline-block w-3 h-px bg-slate-600" />
           two compute locations · your Mac builds it · your Seed keeps it
         </p>

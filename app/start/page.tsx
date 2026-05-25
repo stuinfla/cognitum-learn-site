@@ -230,7 +230,7 @@ function WelcomeStep({ onContinue, bridge }: { onContinue: () => void; bridge: B
               <Image src="/img/seed-product.png" alt="The Cognitum One Seed — small dark module shown next to its retail box branded COGNITUM seed."
                 fill className="object-contain" sizes="(min-width: 1024px) 40vw, 100vw" />
             </div>
-            <div className="mt-3 mono text-[10px] uppercase tracking-widest text-slate-500 text-center">
+            <div className="mt-3 mono text-[10px] uppercase tracking-widest text-slate-400 text-center">
               your Cognitum One Seed · the dark module under the box
             </div>
           </div>
@@ -238,7 +238,7 @@ function WelcomeStep({ onContinue, bridge }: { onContinue: () => void; bridge: B
             <p>That&rsquo;s it — the small dark module shown in the photo, with its retail box on top so you can tell the scale. It carries an <em className="text-amber-300 not-italic">AI brain</em> (vector database + local inference) and the ports to plug into your Mac. Lives on your desk. Yours. Never asks for an account or sends anything to a cloud.</p>
             <p>It can do a few things, but the <em className="text-amber-300 not-italic">primary thing it does</em> — the one most people buy it for — is what we&rsquo;ll set up together right now.</p>
             <details className="pt-2">
-              <summary className="mono text-[11px] uppercase tracking-widest text-slate-500 hover:text-amber-300 transition cursor-pointer inline-flex items-center gap-2">
+              <summary className="mono text-[11px] uppercase tracking-widest text-slate-400 hover:text-amber-300 transition cursor-pointer inline-flex items-center gap-2">
                 <span className="inline-block w-3 h-px bg-current" /> wired into a Mac mini
               </summary>
               <div className="mt-4 relative aspect-square max-w-[320px] rounded-md overflow-hidden border border-slate-800">
@@ -246,7 +246,7 @@ function WelcomeStep({ onContinue, bridge }: { onContinue: () => void; bridge: B
                   fill className="object-cover" sizes="320px" />
               </div>
             </details>
-            <a href="https://cognitum.one" target="_blank" rel="noreferrer" className="mono text-[11px] uppercase tracking-widest text-slate-500 hover:text-amber-300 transition inline-flex items-center gap-2">
+            <a href="https://cognitum.one" target="_blank" rel="noreferrer" className="mono text-[11px] uppercase tracking-widest text-slate-400 hover:text-amber-300 transition inline-flex items-center gap-2">
               <span className="inline-block w-3 h-px bg-current" /> more at cognitum.one
             </a>
           </div>
@@ -273,7 +273,7 @@ function WelcomeStep({ onContinue, bridge }: { onContinue: () => void; bridge: B
               <Image src="/img/distillation.png" alt="Abstract cascade of video frames, audio waveforms, and book pages flowing down and distilling into glowing vector grid patterns."
                 fill className="object-cover" sizes="(min-width: 1024px) 40vw, 100vw" />
             </div>
-            <div className="mt-3 mono text-[10px] uppercase tracking-widest text-slate-500 text-center leading-relaxed">
+            <div className="mt-3 mono text-[10px] uppercase tracking-widest text-slate-400 text-center leading-relaxed">
               raw video → distilled knowledge → vector recall<br/>all stored locally on your Seed
             </div>
           </div>
@@ -316,7 +316,7 @@ function WelcomeStep({ onContinue, bridge }: { onContinue: () => void; bridge: B
 
         {/* Mocked answer preview — uses real .answer typography */}
         <div className="border border-slate-800 bg-slate-900/40 rounded-[6px] p-5 sm:p-6">
-          <div className="font-mono text-[10px] uppercase tracking-widest text-slate-500 mb-1">YOU</div>
+          <div className="font-mono text-[10px] uppercase tracking-widest text-slate-400 mb-1">YOU</div>
           <div className="text-slate-100 mb-4">If I have $400k in a 401k at 45 and want to retire at 60, what does the math actually say I need to save monthly?</div>
           <div className="font-mono text-[10px] uppercase tracking-widest text-amber-300 mb-2">MY SEED</div>
           <div className="answer">
@@ -341,7 +341,7 @@ function WelcomeStep({ onContinue, bridge }: { onContinue: () => void; bridge: B
             </ul>
           </div>
         </div>
-        <p className="mt-3 mono text-[10px] uppercase tracking-widest text-slate-500 text-center">
+        <p className="mt-3 mono text-[10px] uppercase tracking-widest text-slate-400 text-center">
           a preview · your actual answers come from videos YOU pick on topics YOU care about
         </p>
       </section>
@@ -352,7 +352,7 @@ function WelcomeStep({ onContinue, bridge }: { onContinue: () => void; bridge: B
           className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-5 bg-amber-300 text-slate-950 font-semibold text-[17px] hover:bg-amber-200 transition rounded-[4px]">
           Start the tour <span aria-hidden>→</span>
         </button>
-        <p className="mt-4 mono text-[10px] uppercase tracking-widest text-slate-500">
+        <p className="mt-4 mono text-[10px] uppercase tracking-widest text-slate-400">
           stays local · uses about as much internet as a Netflix night
         </p>
       </section>
@@ -393,7 +393,7 @@ function PlanStep({ n, title, children }: { n: string; title: string; children: 
     <div className="border border-slate-800 bg-slate-900/40 rounded-[4px] p-5">
       <div className="flex items-baseline gap-2 mb-2">
         <span className="display text-[28px] text-amber-300 leading-none">{n}</span>
-        <span className="mono text-[10px] uppercase tracking-widest text-slate-500">·</span>
+        <span className="mono text-[10px] uppercase tracking-widest text-slate-400">·</span>
         <span className="text-slate-100 font-medium text-[15px]">{title}</span>
       </div>
       <p className="text-slate-400 text-[13px] leading-[1.55]">{children}</p>
@@ -410,7 +410,7 @@ function Header({ bridge }: { bridge: BridgeState }) {
         <Link href="/" className="flex items-center gap-2 sm:gap-3 min-w-0 group">
           <BrandMark className="w-7 h-7 flex-none" />
           <span className="font-medium tracking-tight text-slate-100 whitespace-nowrap group-hover:text-amber-300 transition">cognitum-learn</span>
-          <span className="font-mono text-[10px] text-slate-500 uppercase tracking-widest whitespace-nowrap" data-version>{COGNITUM_LEARN_VERSION}</span>
+          <span className="font-mono text-[10px] text-slate-400 uppercase tracking-widest whitespace-nowrap" data-version>{COGNITUM_LEARN_VERSION}</span>
         </Link>
         <BridgePill bridge={bridge} />
       </div>
@@ -451,7 +451,7 @@ function BridgePill({ bridge }: { bridge: BridgeState }) {
 function CheckingBridge() {
   return (
     <div className="py-20 text-center">
-      <div className="font-mono text-[11px] uppercase tracking-widest text-slate-500">looking for your local bridge…</div>
+      <div className="font-mono text-[11px] uppercase tracking-widest text-slate-400">looking for your local bridge…</div>
     </div>
   );
 }
@@ -530,15 +530,15 @@ function Offline() {
       {tab === "cargo" && (
         <div className="space-y-3">
           <div>
-            <div className="font-mono text-[10px] uppercase tracking-widest text-slate-500 mb-1.5">First — install Rust if you don&rsquo;t have it</div>
+            <div className="font-mono text-[10px] uppercase tracking-widest text-slate-400 mb-1.5">First — install Rust if you don&rsquo;t have it</div>
             <CodeBlock>curl --proto &apos;=https&apos; --tlsv1.2 -sSf https://sh.rustup.rs | sh</CodeBlock>
           </div>
           <div>
-            <div className="font-mono text-[10px] uppercase tracking-widest text-slate-500 mb-1.5 mt-3">Then — install cognitum-learn</div>
+            <div className="font-mono text-[10px] uppercase tracking-widest text-slate-400 mb-1.5 mt-3">Then — install cognitum-learn</div>
             <CodeBlock>cargo install --git https://github.com/stuinfla/cognitum-learn learn-cli</CodeBlock>
           </div>
           <div>
-            <div className="font-mono text-[10px] uppercase tracking-widest text-slate-500 mb-1.5 mt-3">Finally — start the bridge</div>
+            <div className="font-mono text-[10px] uppercase tracking-widest text-slate-400 mb-1.5 mt-3">Finally — start the bridge</div>
             <CodeBlock>learn ui</CodeBlock>
             <p className="text-slate-500 text-xs mt-2">Compiles in 3–5 min. Installs a <code className="font-mono text-amber-200">learn</code> binary to ~/.cargo/bin/.</p>
           </div>
@@ -754,7 +754,7 @@ function SeedStep({ status, seedName, setSeedName, onPaired }: {
               Pair
             </button>
           </div>
-          <button onClick={scan} className="font-mono text-[11px] uppercase tracking-widest text-slate-500 hover:text-amber-300 transition">
+          <button onClick={scan} className="font-mono text-[11px] uppercase tracking-widest text-slate-400 hover:text-amber-300 transition">
             ← scan again
           </button>
         </div>
@@ -807,7 +807,7 @@ function FoundCard({ ip, seedName, setSeedName, onPair }: {
       </div>
 
       <details className="mt-5 group">
-        <summary className="font-mono text-[10px] uppercase tracking-widest text-slate-500 hover:text-slate-300 cursor-pointer">technical details</summary>
+        <summary className="font-mono text-[10px] uppercase tracking-widest text-slate-400 hover:text-slate-300 cursor-pointer">technical details</summary>
         <div className="mt-2 font-mono text-[11px] text-slate-500">
           discovered via mDNS · _cognitum._tcp.local. · ip <span className="text-emerald-300">{ip}</span>
         </div>
@@ -949,7 +949,7 @@ function TopicStep({ topics, onStarter, onCustom, onExisting }: {
               >
                 <div className="flex items-center justify-between gap-3">
                   <code className="font-mono text-emerald-300">{t.slug}</code>
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-slate-500">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-slate-400">
                     {t.video_count} videos · {t.chunks} chunks
                   </span>
                 </div>
@@ -1083,7 +1083,7 @@ function IngestStep({ topic, seedName, onDone }: {
 
         {/* RIGHT: card grid of incoming videos */}
         <div className="lg:col-span-7">
-          <div className="font-mono text-[10px] uppercase tracking-widest text-slate-500 mb-3">
+          <div className="font-mono text-[10px] uppercase tracking-widest text-slate-400 mb-3">
             indexed so far
           </div>
           {videos.length === 0 ? (
@@ -1102,7 +1102,7 @@ function IngestStep({ topic, seedName, onDone }: {
           )}
 
           <details className="mt-6 group">
-            <summary className="font-mono text-[10px] uppercase tracking-widest text-slate-600 hover:text-slate-400 cursor-pointer">
+            <summary className="font-mono text-[10px] uppercase tracking-widest text-slate-400 hover:text-slate-400 cursor-pointer">
               raw progress log
             </summary>
             <div className="mt-3 max-h-48 overflow-y-auto bg-slate-950 border border-slate-800 rounded-[4px] p-3 font-mono text-[11px] space-y-1">
@@ -1204,7 +1204,7 @@ function WowCard({ topic, seedName, stats, onAsk }: {
         </Link>
       </div>
 
-      <div className="mt-6 font-mono text-[10px] uppercase tracking-widest text-slate-600">
+      <div className="mt-6 font-mono text-[10px] uppercase tracking-widest text-slate-400">
         stored on {seedName} · file <code className="text-emerald-300">~/Docs/KB/{topic.slug}.rvf</code>
       </div>
     </section>
@@ -1215,7 +1215,7 @@ function BigStat({ label, value }: { label: string; value: number }) {
   return (
     <div className="border border-slate-800 bg-slate-950/60 rounded-[4px] px-5 py-5">
       <div className="display text-[40px] text-emerald-300 tabular-nums leading-none">{value.toLocaleString()}</div>
-      <div className="font-mono text-[10px] uppercase tracking-widest text-slate-500 mt-2">{label}</div>
+      <div className="font-mono text-[10px] uppercase tracking-widest text-slate-400 mt-2">{label}</div>
     </div>
   );
 }
@@ -1275,7 +1275,7 @@ function ChatStep({ topics, seedName, initialTopic, initialQuestion }: {
       <div className="space-y-4 mb-6">
         {turns.map((t, i) => (
           <div key={i} className="border border-slate-800 bg-slate-900/40 rounded-[6px] p-5">
-            <div className="font-mono text-[10px] uppercase tracking-widest text-slate-500 mb-1">YOU</div>
+            <div className="font-mono text-[10px] uppercase tracking-widest text-slate-400 mb-1">YOU</div>
             <div className="text-slate-100 mb-4">{t.q}</div>
             <div className="font-mono text-[10px] uppercase tracking-widest text-amber-300 mb-1">{seedName.toUpperCase()}</div>
             <div className="answer">
@@ -1318,7 +1318,7 @@ function ChatStep({ topics, seedName, initialTopic, initialQuestion }: {
           <Link
             href="/start"
             onClick={(e) => { e.preventDefault(); window.location.reload(); }}
-            className="font-mono text-[11px] uppercase tracking-widest text-slate-500 hover:text-amber-300 transition inline-flex items-center gap-2"
+            className="font-mono text-[11px] uppercase tracking-widest text-slate-400 hover:text-amber-300 transition inline-flex items-center gap-2"
           >
             <span className="inline-block w-3 h-px bg-current" />
             Build another expert
@@ -1334,7 +1334,7 @@ function ChatStep({ topics, seedName, initialTopic, initialQuestion }: {
 function Footer() {
   return (
     <footer className="mt-12 py-8 border-t border-slate-800">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] uppercase tracking-widest text-slate-500">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] uppercase tracking-widest text-slate-400">
         <span>cognitum-learn <span data-version-footer>{COGNITUM_LEARN_VERSION}</span> · your hardware, your data</span>
         <Link href="/" className="hover:text-amber-300 transition">← back to homepage</Link>
       </div>
