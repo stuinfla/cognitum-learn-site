@@ -578,7 +578,7 @@ function FAQ() {
   // come first and are open by default. Technical FAQs are collapsed.
   const items = [
     {
-      q: "What if I don&rsquo;t have a Seed yet?",
+      q: "What if I don’t have a Seed yet?",
       defaultOpen: true,
       a: <>The CLI works standalone — your KB lives as a <span className="mono">.rvf</span> file on your laptop. Without a Seed you lose the always-on, sips-power, plug-and-share device. <a className="text-amber-300 hover:underline" href="https://cognitum.one">Get one →</a></>
     },
