@@ -6,6 +6,7 @@ import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { COGNITUM_LEARN_VERSION } from "../version";
+import { LiveVersion } from "../live-version";
 
 const BRIDGE = "http://127.0.0.1:7878";
 
@@ -410,7 +411,7 @@ function Header({ bridge }: { bridge: BridgeState }) {
         <Link href="/" className="flex items-center gap-2 sm:gap-3 min-w-0 group">
           <BrandMark className="w-7 h-7 flex-none" />
           <span className="font-medium tracking-tight text-slate-100 whitespace-nowrap group-hover:text-amber-300 transition">cognitum-learn</span>
-          <span className="font-mono text-[10px] text-slate-400 uppercase tracking-widest whitespace-nowrap" data-version>{COGNITUM_LEARN_VERSION}</span>
+          <LiveVersion className="font-mono text-[10px] text-slate-400 uppercase tracking-widest whitespace-nowrap" />
         </Link>
         <BridgePill bridge={bridge} />
       </div>
@@ -1433,7 +1434,7 @@ function Footer() {
   return (
     <footer className="mt-12 py-8 border-t border-slate-800">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] uppercase tracking-widest text-slate-400">
-        <span>cognitum-learn <span data-version-footer>{COGNITUM_LEARN_VERSION}</span> · your hardware, your data</span>
+        <span>cognitum-learn <LiveVersion /> · your hardware, your data</span>
         <Link href="/" className="hover:text-amber-300 transition">← back to homepage</Link>
       </div>
     </footer>
