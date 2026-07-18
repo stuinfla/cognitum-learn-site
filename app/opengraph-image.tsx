@@ -141,7 +141,7 @@ export default async function OpengraphImage() {
               }}
             >
               <div style={{ width: 8, height: 8, background: "#10b981", borderRadius: 0 }} />
-              shipping v0.4.0
+              shipping v0.6.0
             </div>
             <div style={{ color: "#334155" }}>·</div>
             <div>cognitum-learn-site.vercel.app</div>
